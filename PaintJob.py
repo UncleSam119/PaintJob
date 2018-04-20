@@ -13,7 +13,7 @@ def getFloat(prompt):
 
 def getState():
     # This function prompts the user for the that they are in and returns that
-    sState = input('Please enter the states abbreviations that the job is being done in(example: Massachusetts = Ma):')
+    sState = input('Please enter the states abbreviations that the job is being done in(example: Massachusetts = Ma): ')
 
     # Converting string to uppercase to make for easier if statements
     return sState.upper()
@@ -62,19 +62,20 @@ def showCostEstimate(fLabor, fPaint, fTax):
     fTotalTax = (fLabor + fPaint) * fTax
     fFinalTotal = fLabor + fPaint + fTotalTax
 
-   # To the screen
+    # To the screen
     print('\n---------------------------------------------------------------------------------------------\n')
-    print('Final labor cost: $', format(fLabor, '.2f'), '\nFinal paint cost: $', format(fPaint, '.2f'))
-    print('Tax cost: $', format(fTotalTax, '.2f'),'\nTotal job cost: $', format(fFinalTotal, '.2f'))
+    print('Final labor cost: $' + '{0:,.2f}'.format(fLabor), '\nFinal paint cost: $' + '{0:,.2f}'.format(fPaint))
+    print('Tax cost: $' + '{0:,.2f}'.format(fTotalTax), '\nTotal job cost: $' + '{0:,.2f}'.format(fFinalTotal))
 
     # To the file
     myfile = open('PaintJobOutput.txt', 'w')
-    myfile.write('Final labor cost: $' + format(fLabor, '.2f'))
-    myfile.write('\nFinal paint cost: $' + format(fPaint, '.2f'))
-    myfile.write('\nTax cost: $' + format(fTotalTax, '.2f'))
-    myfile.write('\nTotal job cost: $' + format(fFinalTotal, '.2f'))
+    myfile.write('Final labor cost: $' + '{0:,.2f}'.format(fLabor))
+    myfile.write('\nFinal paint cost: $' + '{0:,.2f}'.format(fPaint))
+    myfile.write('\nTax cost: $' + '{0:,.2f}'.format(fTotalTax))
+    myfile.write('\nTotal job cost: $' + '{0:,.2f}'.format(fFinalTotal))
 
     myfile.close()
+
 
 def main ():
 
