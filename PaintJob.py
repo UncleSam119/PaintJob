@@ -61,19 +61,29 @@ def showCostEstimate(fLabor, fPaint, fTax):
     # This function shows the final cost and the total while also making a file with the information
     fTotalTax = (fLabor + fPaint) * fTax
     fFinalTotal = fLabor + fPaint + fTotalTax
-    print('\n---------------------------------------------------------------------------------------------\n')
-    print('Final labor cost:', format(fLabor, '.2f'), '\nFinal paint cost:', format(fPaint, '.2f'))
-    print('Tax cost:', format(fTotalTax, '.2f'),'\nTotal job cost:', fFinalTotal)
 
+   # To the screen
+    print('\n---------------------------------------------------------------------------------------------\n')
+    print('Final labor cost: $', format(fLabor, '.2f'), '\nFinal paint cost: $', format(fPaint, '.2f'))
+    print('Tax cost: $', format(fTotalTax, '.2f'),'\nTotal job cost: $', format(fFinalTotal, '.2f'))
+
+    # To the file
+    myfile = open('PaintJobOutput.txt', 'w')
+    myfile.write('Final labor cost: $' + format(fLabor, '.2f'))
+    myfile.write('\nFinal paint cost: $' + format(fPaint, '.2f'))
+    myfile.write('\nTax cost: $' + format(fTotalTax, '.2f'))
+    myfile.write('\nTotal job cost: $' + format(fFinalTotal, '.2f'))
+
+    myfile.close()
 
 def main ():
 
     # Here we are calling the input function to get all the information from the user
-    fSquarefeet = getFloat('Enter square feet of the wall:')
-    fPaintPrice = getFloat('Enter the price of the paint:')
-    fFeetPer = getFloat('Enter the feet per gallon of paint:')
-    fLaborHours = getFloat('Enter the labor hours per gallon of paint:')
-    fCostLabor = getFloat('Enter the cost of labor per hour:')
+    fSquarefeet = getFloat('Enter square feet of the wall: ')
+    fPaintPrice = getFloat('Enter the price of the paint: ')
+    fFeetPer = getFloat('Enter the feet per gallon of paint: ')
+    fLaborHours = getFloat('Enter the labor hours per gallon of paint: ')
+    fCostLabor = getFloat('Enter the cost of labor per hour: ')
     sState = getState()
 
     # This is where we find out how many gallons of paint we need
