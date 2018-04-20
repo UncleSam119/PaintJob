@@ -16,9 +16,7 @@ def getState():
     sState = input('Please enter the states abbreviations that the job is being done in(example: Massachusetts = Ma):')
 
     # Converting string to uppercase to make for easier if statements
-    sStateUpper = sState.upper()
-    print(sStateUpper)
-    return sStateUpper
+    return sState.upper()
 
 
 def getGallonsOfPaint(fSquare, fFeet):
@@ -56,13 +54,14 @@ def getSalesTax(sState):
     elif sState == 'NH': return 0.00
     elif sState == 'RI': return 0.07
     elif sState == 'VT': return 0.06
-    else : return 0.0
+    else: return 0.0
 
 
 def showCostEstimate(fLabor, fPaint, fTax):
-    # This program shows the final cost and the total while also making a file with the information
+    # This function shows the final cost and the total while also making a file with the information
     fTotalTax = (fLabor + fPaint) * fTax
     fFinalTotal = fLabor + fPaint + fTotalTax
+    print('\n---------------------------------------------------------------------------------------------\n')
     print('Final labor cost:', format(fLabor, '.2f'), '\nFinal paint cost:', format(fPaint, '.2f'))
     print('Tax cost:', format(fTotalTax, '.2f'),'\nTotal job cost:', fFinalTotal)
 
@@ -94,5 +93,6 @@ def main ():
 
     # Finally calling the print function with everything
     showCostEstimate(fFinalLaborCost, fFinalPaintCost, fSalesTax)
+
 
 main()
